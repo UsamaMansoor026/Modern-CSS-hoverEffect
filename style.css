@@ -26,7 +26,7 @@ main {
   gap: 3px;
   margin-inline: 60px;
   transform-style: preserve-3d;
-  transform: perspective(2000px);
+  transform: perspective(1500px);
 }
 
 /* Single child inside the container */
@@ -43,26 +43,15 @@ main {
 }
 
 /* (+ *) This target the very next valid element */
-.container__item:hover + * {
+.container__item:hover + .container__item {
   filter: brightness(0.6);
   transform: translateZ(110px) rotateY(40deg);
 }
 
-.container__item:hover + * + * {
-  filter: brightness(0.4);
-  transform: translateZ(30px) rotateY(20deg);
-}
-
 /* This piece of code check if the next sibling is hovered or not, if hovered then apply this styling. */
-.container__item:has(+ *:hover) {
+.container__item:has(+ .container__item:hover) {
   filter: brightness(0.6);
   transform: translateZ(110px) rotateY(-40deg);
-}
-
-/* This checks if the next of next sibling is hovered or not */
-.container__item:has(+ * + *:hover) {
-  filter: brightness(0.4);
-  transform: translateZ(30px) rotateY(-20deg);
 }
 
 /* ==== */
